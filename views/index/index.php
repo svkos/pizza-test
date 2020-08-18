@@ -1,14 +1,14 @@
 <? use yii\helpers\Html; ?>
 <ul class="items">
-	<? foreach($menu as $item){ ?>
+	<? foreach($menuAll as $menu){ ?>
 		<li class="item">
 			<div class="product">
 				<div class="about">
 					<picture class="image">
-						<?= Html::img('@web/image/'.$item->image, ['alt'=>$item->name, 'height'=>'230', 'width'=>'292']);?>
+						<?= Html::img('@web/image/'.$menu->defaultProduct->image->name, ['alt'=>$menu->name, 'height'=>'230', 'width'=>'292']);?>
 					</picture>
 					<div class="title">
-						<h3><?=$item->name?></h3>
+						<h3><?=$menu->name?></h3>
 						<div class="nutrition">
 							<div class="icon">
 								<svg width="18" height="18" viewBox="0 0 18 18">
@@ -19,25 +19,27 @@
 								<div class="">
 									<span>Nutrition information per 100g</span>
 								</div>
-								<?=$item->nutrition?>
+								Nutrition
 							</div>
 						</div>
 					</div>
-					<div class="description"><?=$item->description?></div>
+					<div class="description"><?=$menu->description?></div>
 				</div>
 				<div class="cart">
 					<div class="parameters">
-						<div class="type">
-							<div>Traditional</div>
-							<div>Thin</div>
-						</div>
+						<? if($menu->parameters){ ?>
+							<div class="type">
+								<? foreach($menu->parameters as $parameter){ ?>
+									<div class="<? echo $parameter->id_parameter == $menu->defaultProduct->id_parameter ? 'active' : '';?>"><?=$parameter->name?></div>
+								<? } ?>
+							</div>
+						<? } ?>
 						<div class="_2n5maMVyMKs6pwgh3QYrgq">
 							<div class="selector_size">
-								<div class="selector" style="width: 25%; transform: translateX(0%);"></div>
-								<div class="size active">23 cm</div>
-								<div class="size">30</div>
-								<div class="size">35</div>
-								<div class="size">40</div>
+								<!--<div class="selector" style="width: 25%; transform: translateX(0%);"></div>-->
+								<? foreach($menu->sizes as $size){ ?>
+									<div class="size <? echo $size->id_size == $menu->defaultProduct->id_size ? 'active' : '';?>"><?=$size->name?></div>
+								<? } ?>
 							</div>
 						</div>
 					</div>
@@ -46,8 +48,8 @@
 							<span>Add to cart</span>
 						</button>
 						<div class="price">
-							<span id="price">399 
-							<span class="currency">₽</span>
+							<span id="price"><?=$menu->defaultProduct->usd_price?>
+							<span class="currency">$</span>
 						</div>
 					</div>
 				</div>

@@ -37,7 +37,7 @@ class IndexController extends Controller
         $menuAll = Menu::find()->all();
 
         return $this->render('index', [
-            'menu' => $menuAll,
+            'menuAll' => $menuAll,
         ]);
 
     }

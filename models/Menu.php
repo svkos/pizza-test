@@ -33,7 +33,6 @@ class Menu extends \yii\db\ActiveRecord
             [['name'], 'string', 'max' => 80],
             [['description'], 'string', 'max' => 400],
             [['nutrition'], 'string', 'max' => 200],
-            [['image'], 'string', 'max' => 15],
         ];
     }
 
@@ -47,7 +46,33 @@ class Menu extends \yii\db\ActiveRecord
             'name' => 'Name',
             'description' => 'Description',
             'nutrition' => 'Nutrition',
-            'image' => 'Image',
         ];
+    }
+
+    /**
+     * relation with Sizes table
+     */
+    public function getSizes()
+    {
+        return $this->hasMany(Sizes::className(), ['id_size' => 'id_size'])
+                    ->viaTable('menu_sizes', ['id_menu' => 'id_menu']);
+    }
+	
+    /**
+     * relation with Parameters table
+     */
+    public function getParameters()
+    {
+        return $this->hasMany(Parameters::className(), ['id_parameter' => 'id_parameter'])
+                    ->viaTable('menu_parameters', ['id_menu' => 'id_menu']);
+    }
+	
+    /**
+     * relation with Positions table and get default products
+     */
+    public function getDefaultProduct()
+    {
+        return $this->hasOne(Products::className(), ['id_menu' => 'id_menu'])
+                    ->andOnCondition(['is_default' => '1']);
     }
 }

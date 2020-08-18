@@ -27,8 +27,11 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
+	<div class="header">
+		<?php echo Html::img('@web/image/logo.png', ['alt'=>'happy pizza', 'width'=>'100']); ?>
+	</div>
     <?php
-    NavBar::begin([
+    /*NavBar::begin([
         'brandLabel' => Html::img('@web/image/logo.png', ['alt'=>'happy pizza', 'width'=>'100']),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
@@ -52,7 +55,7 @@ AppAsset::register($this);
             )
         ],
     ]);
-    NavBar::end();
+    NavBar::end();*/
     ?>
 
     <div class="container2">

@@ -1,6 +1,13 @@
 body{
 	background-color: #f8f8f8;
 }
+.header{
+	background-color: white;
+    box-shadow: 0 2px 12px 0 rgba(41,44,51,.1);
+    text-align: center;
+    padding: 8px 0;
+    margin-bottom: 10px;
+}
 .items{
 	display: flex;
     flex-direction: row;
