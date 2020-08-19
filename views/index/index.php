@@ -2,7 +2,7 @@
 <ul class="items">
 	<? foreach($menuAll as $menu){ ?>
 		<li class="item">
-			<div class="product">
+			<form class="product">
 				<div class="about">
 					<picture class="image">
 						<?= Html::img('@web/image/'.$menu->defaultProduct->image->name, ['alt'=>$menu->name, 'height'=>'230', 'width'=>'292']);?>
@@ -30,30 +30,34 @@
 						<? if($menu->parameters){ ?>
 							<div class="type">
 								<? foreach($menu->parameters as $parameter){ ?>
-									<div class="<? echo $parameter->id_parameter == $menu->defaultProduct->id_parameter ? 'active' : '';?>"><?=$parameter->name?></div>
+									<? $checked = $parameter->id_parameter == $menu->defaultProduct->id_parameter ? 'checked' : '';?>
+									<input type="radio" class="input" name="id_parameter" id="param<?=$menu->id_menu?><?=$parameter->id_parameter?>" value="<?=$parameter->id_parameter?>" <?=$checked?>>
+									<label for="param<?=$menu->id_menu?><?=$parameter->id_parameter?>">
+										<span><?=$parameter->name?></span>
+									</label>
 								<? } ?>
 							</div>
 						<? } ?>
-						<div class="_2n5maMVyMKs6pwgh3QYrgq">
-							<div class="selector_size">
-								<!--<div class="selector" style="width: 25%; transform: translateX(0%);"></div>-->
-								<? foreach($menu->sizes as $size){ ?>
-									<div class="size <? echo $size->id_size == $menu->defaultProduct->id_size ? 'active' : '';?>"><?=$size->name?></div>
-								<? } ?>
-							</div>
+						<div class="selector_size">
+							<? foreach($menu->sizes as $size){ ?>
+								<? $checked = $size->id_size == $menu->defaultProduct->id_size ? 'checked' : '';?>
+								<input type="radio" class="input" name="id_size" id="sizes<?=$menu->id_menu?><?=$size->id_size?>" value="<?=$size->id_size?>" <?=$checked?>>
+								<label class="size" for="sizes<?=$menu->id_menu?><?=$size->id_size?>">
+									<span><?=$size->name?></span>
+								</label>
+							<? } ?>
 						</div>
 					</div>
+					<input type="hidden" name="id_menu" value="<?=$menu->id_menu?>">
 					<div class="add-to-cart">
-						<button type="button" class="cart-button">
-							<span>Add to cart</span>
-						</button>
+						<input type="submit" value="Add to cart" class="cart-button">
 						<div class="price">
-							<span id="price"><?=$menu->defaultProduct->usd_price?>
-							<span class="currency">$</span>
+							<span id="price"><?=$menu->defaultProduct->getPrice()?></span>
+							<span class="currency"><?=$menu->defaultProduct->getCurrency()?></span>
 						</div>
 					</div>
 				</div>
-			</div>
+			</form>
 		</li>	
 	<? } ?>
 </ul>

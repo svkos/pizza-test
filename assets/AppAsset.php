@@ -21,17 +21,18 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
-		'css/style.css',
-		'css/bootstrap-select.min.css',
+        'css/style.css',
+        'css/bootstrap-select.min.css',
     ];
     public $js = [
-		'js/bootstrap-select.min.js'
+        'js/bootstrap-select.min.js',
+        'js/main.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
     ];
-	public $jsOptions = array(
-		'position' => \yii\web\View::POS_HEAD
-	);
+    public $jsOptions = array(
+        'position' => \yii\web\View::POS_END
+    );
 }
