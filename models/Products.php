@@ -60,6 +60,30 @@ class Products extends \yii\db\ActiveRecord
     }
 
     /**
+     * relation with Images table
+     */
+    public function getMenu()
+    {
+        return $this->hasOne(Menu::className(), ['id_menu' => 'id_menu']);
+    }
+	
+    /**
+     * relation with Images table
+     */
+    public function getParameter()
+    {
+        return $this->hasOne(Parameters::className(), ['id_parameter' => 'id_parameter']);
+    }
+	
+	/**
+     * relation with Images table
+     */
+    public function getSize()
+    {
+        return $this->hasOne(Sizes::className(), ['id_size' => 'id_size']);
+    }
+	
+    /**
      * @return string of current price
      */
     public function getPrice()
@@ -74,12 +98,25 @@ class Products extends \yii\db\ActiveRecord
     /**
      * @return string symbol of current currency
      */
-    public function getCurrency()
+    public static function getCurrency()
     {
         switch(Yii::$app->session->get('currency')){
             case 'USD': return '$';
             case 'EUR': return '€';
             default: return '$';
         }
+    }
+	
+    public static function changeCurrency(){
+        $session = Yii::$app->session;
+        switch($session->get('currency')){
+            case 'USD': return $session->set('currency', 'EUR');
+            case 'EUR': return $session->set('currency', 'USD');;
+            default: return $session->set('currency', 'USD');;
+        }
+    }
+
+    public static function getParameterName($id_product,$param){
+        return self::findOne($id_product)->{$param}->name;
     }
 }

@@ -32,10 +32,11 @@ class IndexController extends Controller
     public function beforeAction($action)
     {
         $session = Yii::$app->session;
-        if(!$session->has('currency'))
+        if(!$session->has('currency'))		// initialize if first start application
             $session->set('currency', 'USD');
         return parent::beforeAction($action);
     }
+	
     /**
      * List all Menu models.
      * @return mixed

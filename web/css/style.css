@@ -8,19 +8,18 @@ body{
     padding: 8px 0;
     margin-bottom: 10px;
 }
-.items{
+#main .items{
 	display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-left: -5px;
-    margin-right: -5px;
+	padding: 20px 10%;	
 }
-.item{
+#main .item{
 	display: flex;
     width: calc(33.3% - 10px);
     margin: 5px;
 }
-.product{
+#main .product{
 	width: 100%;
     height: 100%;
     display: flex;
@@ -30,10 +29,10 @@ body{
     border-radius: 6px;
     background-color: #fff;
 }
-.about{
+#main .about{
 	margin-bottom: 24px;
 }
-.image{
+#main .image{
 	width: 292px;
     height: 230px;
     max-width: 100%;
@@ -43,7 +42,7 @@ body{
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
 }
-.title{
+#main .title{
 	margin-bottom: 5px;
     padding: 0 24px;
     position: relative;
@@ -51,7 +50,7 @@ body{
     justify-content: space-between;
     flex-wrap: nowrap;
 }
-.title h3{
+#main .title h3{
 	margin-right: 15px;
 	font-size: 18px;
 	position: relative;
@@ -60,10 +59,10 @@ body{
     color: #70544f;
     line-height: 1.33;
 }
-.nutrition{
+#main .nutrition{
 	position: relative;
 }
-.icon{
+#main .icon{
 	color: #bfb7b6;
     cursor: pointer;
     -webkit-user-select: none;
@@ -72,7 +71,7 @@ body{
     -webkit-transition: color .35s;
     transition: color .35s;
 }
-.icon:after {
+#main .icon:after {
     content: "";
     position: absolute;
     top: -9px;
@@ -80,23 +79,22 @@ body{
     bottom: -9px;
     left: -9px;
 }
-.nutrition-description{
+#main .nutrition-description{
 	opacity: 0;
 	position: absolute;
     bottom: 100%;
-    left: -13px;
-    width: 248px;
+    right:0;
+	width: 248px;
     padding: 16px;
     margin-bottom: 13px;
     border-radius: 6px;
     background-color: #70544f;
     color: #fff;
     z-index: 1000;
-    opacity: 0;
     -webkit-transition: opacity .175s;
     transition: opacity .175s;
 }
-.nutrition-title{
+#main .nutrition-title{
 	font-size: 14px;
 	margin-bottom: 10px;
     color: #fff;
@@ -106,16 +104,16 @@ body{
     color: #70544f;
     line-height: 1.33;
 }
-.description{
+#main .description{
 	padding: 0 24px;
 }
-.cart{
+#main .cart{
 	padding: 0 24px 24px;
 }
-.parameters{
+#main .parameters{
 	margin-bottom: 24px;
 }
-.type{
+#main .type{
 	height: 36px;
     display: flex;
     justify-content: space-between;
@@ -123,7 +121,7 @@ body{
     border: 1px solid #ededed;
 	margin-bottom: 8px;
 }
-.type label{
+#main .type label{
 	height: 100%;
     padding-left: 24px;
     padding-right: 24px;
@@ -143,12 +141,12 @@ body{
     -webkit-transition: color .35s,background-color .35s;
     transition: color .35s,background-color .35s;
 }
-.active{
+#main .active{
    background-color: #ededed;
     color: #70544f;
     cursor: default;
 }
-.selector_size{
+#main .selector_size{
 	position: relative;
     display: flex;
     -webkit-transform: translateZ(0);
@@ -160,7 +158,7 @@ body{
     border-radius: 100px;
     border: 1px solid #ededed;
 }
-.selector{
+#main .selector{
 	position: absolute;
     top: 0;
     left: 0;
@@ -175,7 +173,7 @@ body{
     transition: transform .233333333333333s cubic-bezier(.215,.61,.355,1);
     transition: transform .233333333333333s cubic-bezier(.215,.61,.355,1),-webkit-transform .233333333333333s cubic-bezier(.215,.61,.355,1);
 }
-.size{
+#main .size{
 	justify-content: center;
     align-items: center;
     flex-grow: 1;
@@ -202,7 +200,7 @@ body{
     -webkit-transition: color .35s,background-color .35s;
     transition: color .35s,background-color .35s;
 }
-.add-to-cart{
+#main .add-to-cart{
 	display: flex;
     justify-content: space-between;
     align-items: center;
@@ -234,7 +232,7 @@ body{
     transform: translateZ(0);
     z-index: 2;
 }
-.price{
+#main .price{
 	color: #70544f;
     position: relative;
     display: inline-block;
@@ -245,23 +243,370 @@ body{
 	display: inline-block;
 	white-space: nowrap;
 }
-.currency{
+#main .currency{
 	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     font-weight: 400;
 }
-.selector_size input, .type input{
+#main .selector_size input, .type input{
 	width: 0;
     height: 0;
     position: absolute;
     left: -9999px;
 }
 
-.selector_size input:checked + label, .type input:checked + label {
+#main .selector_size input:checked + label, .type input:checked + label {
     background-color: #ededed;
     color: #70544f;
     cursor: default;
 }
-label{
+#main label{
 	margin-bottom: 0px;
     font-weight: normal;
+}
+.order-button{
+	height: 48px;
+    padding: 15px 25px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 24px;
+    background-color: #e1faf4;
+    color: #009471;
+	border: none;
+    font-family: "Gotham Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.order-button span{
+	position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    z-index: 2;
+}
+.currency-switch{
+	position: relative;
+    margin-left: 25px;
+}
+.currency-switch button{
+	border: none;
+	background:none;
+	font-weight: 500;
+    font-family: "Gotham Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    color: #70544f;
+    display: flex;
+    width: 56px;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+    color: #bfb7b6;
+    -webkit-transition: color .35s;
+    transition: color .35s;
+    text-transform: capitalize;
+}
+.menu-right{
+	display: flex;
+    float: right;
+    right: 39px;
+    top: 23px;
+    position: absolute;
+}
+:focus {
+    outline: 0;
+}
+.small-cart{
+	opacity: 1;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    height: 71px;
+	width: 123px;
+    bottom: 32px;
+    right: 64px;
+    border-radius: 100px;
+    background-color: #c21313;
+    box-shadow: 0 4px 5px 0 rgba(41,44,51,.2);
+    color: #fff;
+    -webkit-transform: scale(.85);
+    transform: scale(.85);
+    z-index: 9999;
+    -webkit-transition: opacity .35s,-webkit-transform .35s;
+    transition: opacity .35s,-webkit-transform .35s;
+    transition: transform .35s,opacity .35s;
+    transition: transform .35s,opacity .35s,-webkit-transform .35s;
+}
+.small-cart-icon{
+	position: relative;
+    width: 38px;
+    margin-left: 15px;
+	margin-top: 3px;
+}
+.small-cart-price{
+	padding-right: 15px;
+	width: 100%;
+	text-align: center;
+    color: #fff;
+	white-space: nowrap;
+	display: inline-block;
+	font-size: 18px;
+    position: relative;
+    display: inline-block;
+    font-family: "Gotham Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 500;
+    line-height: 1;
+}
+.small-cart:focus,.small-cart:hover{
+	outline:none;
+	color:#fff;
+	text-decoration:none;
+}
+#cart{
+	flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+    padding-top: 30px;
+    padding-bottom: 100px;
+	padding-top: 40;
+}
+.box{
+	position: relative;
+    display: flex;
+    flex-direction: row;
+}
+#cart .list{
+	padding: 32px 64px 24px;
+	margin-bottom: 8px;
+	position: relative;
+    border-radius: 6px;
+    background-color: #fff;
+}
+#cart h3{
+	position: relative;
+    font-family: "Gotham Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 700;
+    color: #70544f;
+    line-height: 1.33;
+	font-size: 18px;
+}
+#cart .products{
+	padding-top: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+#cart .product{
+    padding: 12px 0;
+    border-bottom: 1px solid #ededed;
+	display: flex;
+    align-items: center;
+    justify-content: space-between;	
+}
+#cart .image{
+	flex-shrink: 0;
+    width: 156px;
+    padding-right: 22px;
+	display: block;
+}
+#cart .description{
+	flex-grow: 2;
+    margin-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+#cart .description h5{
+	position: relative;
+    font-family: "Gotham Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 700;
+    color: #70544f;
+    line-height: 1.33;
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+#cart .description span{
+	line-height: 1.3;
+    font-size: 12px;
+}
+#cart .quantityprice{
+	flex-grow: 1;
+    display: flex;
+    max-width: 150px;
+    align-items: center;
+    justify-content: space-between;
+}
+#cart .quantity{
+	padding-right: 10px;
+	width: 80px;
+    height: 24px;
+    padding-left: 28px;
+    padding-right: 28px;
+    position: relative;
+}
+#cart .qbutton{
+	position: absolute;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border-radius: 50%;
+    border: none;
+    background-color: #e1faf4;
+    color: #009471;
+    text-align: center;
+    line-height: 24px;
+    font-size: 20px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#cart .minus-button{
+	left: 0;
+}
+#cart .plus-button{
+	right: 0;
+}
+#cart .disable{
+	background-color: #ededed;
+    color: #bfb7b6;
+}
+#cart .qbutton span{
+	position: relative;
+    display: block;
+    height: 100%;
+}
+#cart .quantity_count{
+	height: 100%;
+    text-align: center;
+    color: #70544f;
+    line-height: 24px;
+}
+#cart .price{
+	color: #70544f;
+    position: relative;
+    display: inline-block;
+    font-family: "Gotham Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 500;
+    line-height: 1;
+	display: inline-block;
+	white-space: nowrap;
+}
+#cart .price span{
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 400;
+}
+#cart .remove{
+	position: relative;
+    display: inline-block;
+    color: rgba(191,183,182,.6);
+    background: none;
+    border: none;
+    -webkit-transition: color .35s;
+    transition: color .35s;
+    cursor: pointer;
+}
+#cart .total{
+	display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+#cart .total-block{
+	display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 130px;
+}
+#cart .center{
+	margin: auto;
+	width: 60%;
+}
+
+.text-fields-box{
+	margin-bottom: 40px;
+}
+.fields-title{
+	margin-bottom: 24px;
+	font-size: 18px;
+	position: relative;
+	font-family: "Gotham Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+	font-weight: 700;
+	color: #70544f;
+	line-height: 1.33;
+	border-bottom:none;
+}
+.fields-row{
+	display: flex;
+	margin-left: -20px;
+	margin-right: -20px;
+	margin-bottom: 20px;
+}
+.field-out{
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 0;
+	width: 50%;
+}
+.field-out2{
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 0;
+	width: 100%;
+}
+.input-field{
+	width: 100%;
+	height: 49px;
+	padding: 12px 16px;
+	border-radius: 2px;
+	border: none;
+	background-color: #f5f5f5;
+	font-size: 16px;
+	color: #70544f;
+	-webkit-transition: background-color .35s;
+	transition: background-color .35s;
+}
+.input-label{
+	color:#adadad;
+	display: block;
+	max-width: 100%;
+	min-height: 19px;
+	margin-bottom: 5px;
+	font-weight: normal;
+}
+.input-field-phone{
+	width: 100%;
+	height: 49px;
+	padding: 12px 16px 12px 46px;
+	border-radius: 2px;
+	border: none;
+	background-color: #f5f5f5;
+	font-size: 16px;
+	color: #70544f;
+	-webkit-transition: background-color .35s;
+	transition: background-color .35s;
+}
+.flag{
+	width: 16px;
+	height: 16px;
+	margin: auto 0;
+	position: absolute;
+	top: 2px;
+	bottom: 0;
+	left: 15px;
+}
+.input-field2{
+	width: 100%;
+	height: 49px;
+	padding: 12px 16px;
+	display: block;
+	border-radius: 2px;
+	border: none;
+	background-color: #f5f5f5;
+	font-size: 16px;
+	color: #70544f;
+	-webkit-transition: background-color .35s;
+	transition: background-color .35s;
+}
+.alert-success{
+	text-align:center;
+	margin-bottom: 0;
+    margin-top: 25px;
 }

@@ -9,6 +9,8 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\models\Products;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -28,36 +30,23 @@ AppAsset::register($this);
 
 <div class="wrap">
 	<div class="header">
-		<?php echo Html::img('@web/image/logo.png', ['alt'=>'happy pizza', 'width'=>'100']); ?>
+		<a href="<?=Url::home()?>">
+			<?php echo Html::img('@web/image/logo.png', ['alt'=>'happy pizza', 'width'=>'100']); ?>
+		</a>
+		<div class="menu-right">
+			<div class="orders">
+				<a href="/orders">
+					<button type="button" class="order-button">
+						<span>My Orders</span>
+					</button>
+				</a>
+			</div>
+			<div class="currency-switch">
+				<button id="change-currency"><?=Products::getCurrency()?></button>
+			</div>
+		</div>
 	</div>
-    <?php
-    /*NavBar::begin([
-        'brandLabel' => Html::img('@web/image/logo.png', ['alt'=>'happy pizza', 'width'=>'100']),
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
-    NavBar::end();*/
-    ?>
-
+    
     <div class="container2">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
