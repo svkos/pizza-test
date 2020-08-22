@@ -74,7 +74,6 @@ class Cart
 	
 	/*
 	 * Save confirmed order in Order table with current currency
-	 * @return bool
 	 */
 	public function saveOrder($id_order){
 		foreach($this->_cart as $product){
@@ -83,7 +82,7 @@ class Cart
 			$model->id_product = $product->id_product;
 			$model->quantity = $product->quantity;
 			$model->price = Products::findOne($product->id_product)->getPrice();
-			return $model->save();
+			$model->save();
 		}
 	}
 	
