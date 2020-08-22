@@ -38,7 +38,7 @@ class CartController extends Controller
         $cart = new Cart;
         $order = new Orders;
 
-        if ($order->load(Yii::$app->request->post()) AND !$cart->isEmpty()){
+        if ($order->load(Yii::$app->request->post()) AND !$cart->isEmpty()){   // save order if confirmed
             $order->save();
             $id_order = $order->getPrimaryKey();
             $cart->saveOrder($id_order);
