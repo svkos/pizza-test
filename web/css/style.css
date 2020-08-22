@@ -1,5 +1,9 @@
+html{
+	min-width: 350px;
+}
 body{
 	background-color: #f8f8f8;
+	font: normal 14px/1.4 "Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 .header{
 	background-color: white;
@@ -419,12 +423,12 @@ body{
     font-weight: 700;
     color: #70544f;
     line-height: 1.33;
-	font-size: 12px;
+	font-size: 14px;
 	margin-bottom: 5px;
 }
 #cart .description span{
 	line-height: 1.3;
-    font-size: 12px;
+    font-size: 14px;
 }
 #cart .quantityprice{
 	flex-grow: 1;
@@ -452,7 +456,7 @@ body{
     background-color: #e1faf4;
     color: #009471;
     text-align: center;
-    line-height: 24px;
+    line-height: 20px;
     font-size: 20px;
     cursor: pointer;
     -webkit-user-select: none;
@@ -617,7 +621,9 @@ body{
 
 @media only screen and (max-width: 979px){
 	#main .items{
-		padding: 20px;
+		padding: 0;
+		width: 90%;
+		margin: 0 auto;
 	}
 	.header{
 		margin-bottom:0;
@@ -635,13 +641,15 @@ body{
 	.header{
 		text-align: unset;
 	}
-	.header img{
-		margin-left:20px;
-	}
 }
 @media only screen and (max-width: 700px){
 	#main .item{
 		width: 100%;
+		margin: 20px 0;
+	}
+	.header-box{
+		width:90%;
+		margin: 0 auto;
 	}
 }
 @media only screen and (max-width: 600px){

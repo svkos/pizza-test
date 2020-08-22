@@ -30,19 +30,21 @@ AppAsset::register($this);
 
 <div class="wrap">
 	<div class="header">
-		<a href="<?=Url::home()?>">
-			<?php echo Html::img('@web/image/logo.png', ['alt'=>'happy pizza', 'width'=>'100']); ?>
-		</a>
-		<div class="menu-right">
-			<div class="orders">
-				<a href="/orders">
-					<button type="button" class="order-button">
-						<span>My Orders</span>
-					</button>
-				</a>
-			</div>
-			<div class="currency-switch">
-				<button id="change-currency"><?=Products::getCurrency()?></button>
+		<div class="header-box">
+			<a href="<?=Url::home()?>">
+				<?php echo Html::img('@web/image/logo.png', ['alt'=>'happy pizza', 'width'=>'100']); ?>
+			</a>
+			<div class="menu-right">
+				<div class="orders">
+					<a href="/orders">
+						<button type="button" class="order-button">
+							<span>My Orders</span>
+						</button>
+					</a>
+				</div>
+				<div class="currency-switch">
+					<button id="change-currency"><?=Products::getCurrency()?></button>
+				</div>
 			</div>
 		</div>
 	</div>
