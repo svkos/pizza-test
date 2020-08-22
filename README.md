@@ -2,7 +2,7 @@ Hello pizza lovers!
 Thanks for checking my test!
 
 In this application I use framework Yii2 + MySql.
-The base url of my test domain http://advertpro.biz. Do order
+The base url of my test domain http://advertpro.biz
 I was focused on back-end code quality here and hope is well:)
 Some features:
 - mobile friendly css coding
