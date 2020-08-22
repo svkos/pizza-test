@@ -42,4 +42,12 @@ class OrdersProducts extends \yii\db\ActiveRecord
             'id_product' => 'Id Product',
         ];
     }
+
+    /**
+     * relation with Products table
+     */
+    public function getProducts()
+    {
+        return $this->hasOne(Products::className(), ['id_product' => 'id_product']);
+    }
 }

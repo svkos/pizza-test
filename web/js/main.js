@@ -42,6 +42,17 @@ $(".cart-button").click(function() {
 		 });
 	return false; 
 });
+$(".check-button").click(function() {
+	$.ajax({
+	   type: "POST",
+	   url: "get-orders",
+	   data: { phone : $('#orders-phone').val() },
+	   success: function(data){
+		   $('#orders').html(data);;
+	   }
+	});
+	return true; 
+});
 $(".input").click(function() {
 	var img = $(this.form).find('img');
 	var price = $(this.form).find('#price');

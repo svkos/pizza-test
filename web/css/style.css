@@ -610,6 +610,11 @@ body{
 	margin-bottom: 0;
     margin-top: 25px;
 }
+.check-button{
+	margin-top: 25px;
+    margin-left: 25px;
+}
+
 @media only screen and (max-width: 979px){
 	#main .items{
 		padding: 20px;

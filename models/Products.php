@@ -106,7 +106,15 @@ class Products extends \yii\db\ActiveRecord
             default: return '$';
         }
     }
-	
+
+    /**
+     * @return string current currency USD or EUR
+     */
+    public static function getNameCurrency()
+    {
+        return Yii::$app->session->get('currency');
+    }
+
     public static function changeCurrency(){
         $session = Yii::$app->session;
         switch($session->get('currency')){

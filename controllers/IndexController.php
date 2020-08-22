@@ -8,6 +8,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\AccessControl;
 use app\models\Menu;
 use app\models\Products;
+use app\models\Orders;
 /**
  * IndexController implements the CRUD actions for Menu model.
  */
@@ -32,7 +33,7 @@ class IndexController extends Controller
     public function beforeAction($action)
     {
         $session = Yii::$app->session;
-        if(!$session->has('currency'))		// initialize if first start application
+        if(!$session->has('currency'))        // initialize if first start application
             $session->set('currency', 'USD');
         return parent::beforeAction($action);
     }
@@ -69,6 +70,27 @@ class IndexController extends Controller
         $request = Yii::$app->request;
         if($request->isAjax){
             return Products::find()->where($request->post())->one()->getPrice();
+        }
+    }
+	
+    /**
+     * User's orders page.
+     * @return mixed
+     */
+    public function actionOrders()
+    {
+        return $this->render('orders');
+    }
+	
+    /**
+     * List off user's orders.
+     * @return mixed
+     */
+    public function actionGetOrders()
+    {
+        $request = Yii::$app->request;
+        if($request->isAjax){
+            return $this->renderPartial('orders_list', ['orders' => Orders::find()->where($request->post())->all()]);
         }
     }
 }

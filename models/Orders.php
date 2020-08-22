@@ -57,4 +57,45 @@ class Orders extends \yii\db\ActiveRecord
             'floor' => 'Floor',
         ];
     }
+
+    /**
+     * Save current currency in order
+     */
+    public function beforeSave($insert)
+    {
+        if (!parent::beforeSave($insert))
+            return false;
+        $this->currency = Products::getNameCurrency();
+        return true;
+    }
+
+    /**
+     * relation with Parameters table
+     */
+    public function getOrdersProducts()
+    {
+        return $this->hasMany(OrdersProducts::className(), ['id_order' => 'id_order']);
+    }
+
+    /**
+     * @return sum of order
+     */
+    public function getTotalPrice()
+    {
+        foreach($this->ordersProducts as $item)
+            $sum += $item->price * $item->quantity;
+        return $sum;
+    }
+
+    /**
+     * @return currency symbol of maked order
+     */
+    public function getCurrencySymbol()
+    {
+        switch($this->currency){
+            case 'USD': return '$';
+            case 'EUR': return '€';
+            default: return '$';
+        }
+    }
 }
